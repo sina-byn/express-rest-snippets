@@ -1,0 +1,94 @@
+{
+  // Express Server Init
+  "Init Express Server": {
+    "scope": "javascript,typescript",
+    "prefix": "exp",
+    "body": [
+      "const express = require('express');\n",
+      "const app = express();\n",
+      "$2\n",
+      "const port = process.env.PORT || ${1|3000,5500,8080|};\n",
+      "app.listen(port, () => {",
+      "\tconsole.log(`Server running at http://localhost:\\${port}`)",
+      "});"
+    ],
+    "description": "Initialize an express server"
+  },
+  // Experss Router Init
+  "Init Express Router": {
+    "scope": "javascript,typescript",
+    "prefix": "rtr",
+    "body": [
+      "const { Router } = require('express');",
+      "\nconst router = Router();\n",
+      "router.$1('${2:/}', $3);",
+      "\nmodule.exports = router;"
+    ],
+    "description": "Initialize an express router"
+  },
+  // Middleware
+  "Register a new middleware": {
+    "scope": "javascript,typescript",
+    "prefix": "mid",
+    "body": ["app.use($1);"]
+  },
+  // Router Middleware
+  "Register a new router middleware": {
+    "scope": "javascript,typescript",
+    "prefix": "rmid",
+    "body": ["app.use('${1:/}', $2Routes);"]
+  },
+  // Error Middleware
+  "Register a new error middleware": {
+    "scope": "javascript,typescript",
+    "prefix": "emid",
+    "body": [
+      "app.use((err, _req, res, _next) => {",
+      "\t$1",
+      "\tres.status().json({ message: '$2' })",
+      "});"
+    ]
+  },
+  // Route
+  "Create a new route": {
+    "scope": "javascript,typescript",
+    "prefix": "rt",
+    "body": ["router.${1|get,post,put,delete|}$2('${3:/}', $4);"]
+  },
+  // Controller
+  "Create a new controller": {
+    "scope": "javascript,typescript",
+    "prefix": "ctrl",
+    "body": [
+      "exports.${1|create,get,update,delete|}$2 = async (req, res, next) => {",
+      "\ttry{",
+      "\t\t$3",
+      "\t} catch(err) {\n\t\tnext(err);\n\t}",
+      "};"
+    ]
+  },
+  // Response
+  "Create a new response": {
+    "scope": "javascript,typescript",
+    "prefix": "res",
+    "body": ["res.status(${1:200}).json({ message: '$2' })"]
+  },
+  // Success Response
+  "Create a new success response": {
+    "scope": "javascript,typescript",
+    "prefix": "sres",
+    "body": ["res.status(200).json({ message: '$1' })"]
+  },
+  // Error Response
+  "Create a new error response": {
+    "scope": "javascript,typescript",
+    "prefix": "eres",
+    "body": ["res.status(500).json({ message: '$1' })"]
+  },
+  // No-Content Response
+  "Create a new no-content response": {
+    "scope": "javascript,typescript",
+    "prefix": "ncres",
+    "body": ["res.status(${1:204}).send()"]
+  }
+}

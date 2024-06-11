@@ -1,0 +1,29 @@
+{
+  "name": "express-rest-snippets",
+  "displayName": "Express REST Snippets",
+  "description": "Express snippets for REST API development",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "publisher": "sina-byn",
+  "icon": "icons/logo.png",
+  "repository": "github:sina-byn/express-rest-snippets",
+  "author": "Sina Bayandorian <sina.sina.bayan@protonmail.com> (https://portfolio-sina-byn.vercel.app/)",
+  "license": "MIT",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/snippets.code-snippets"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/snippets.code-snippets"
+      }
+    ]
+  }
+}
