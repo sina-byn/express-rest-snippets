@@ -1,5 +1,7 @@
 # Express REST Snippets
 
+> The source code for this extension is available at https://github.com/sina-byn/express-rest-snippets.
+
 ## Example
 
 Initialize an express server with `exp` :
